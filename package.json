@@ -3,5 +3,9 @@
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^1.0.2",
     "hardhat": "^2.10.1"
+  },
+  "dependencies": {
+    "deepreason-cli": "file:../deepreason-cli",
+    "next": "^12.2.3"
   }
 }
