@@ -9,12 +9,12 @@ contract VaultBasic {
     }
 
     function withdraw(uint256 amt) public {
-        require(balance[msg.sender] >= amt);
+        require(balance[msg.sender] >= amt, "Insufficient balance");
+        
         balance[msg.sender] -= amt;
+        
         (bool success, ) = msg.sender.call{value: amt}("");
-        if (!success) {
-            balance[msg.sender] += amt;
-        }
+        require(success, "Transfer failed");
     }
 
 }
